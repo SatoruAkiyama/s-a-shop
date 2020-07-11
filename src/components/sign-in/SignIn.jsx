@@ -2,7 +2,7 @@ import React from "react";
 import "./SignIn.scss";
 import FormInput from "../form-input/FormInput";
 import Button from "../button/Button";
-import { signInWithGoogle } from "../../firebase/firebaseUtil";
+import { auth, signInWithGoogle } from "../../firebase/firebaseUtil";
 
 class SignIn extends React.Component {
   constructor() {
@@ -10,15 +10,26 @@ class SignIn extends React.Component {
     this.state = {
       email: "",
       password: "",
+      errorMessage: "",
     };
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({
-      email: "",
-      password: "",
-    });
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({
+        email: "",
+        password: "",
+        errorMessage: "",
+      });
+    } catch (e) {
+      this.setState({
+        errorMessage: "Password don't match!",
+      });
+      console.log(e);
+    }
   };
   handleChange = (e) => {
     const { value, name } = e.target;
@@ -28,16 +39,17 @@ class SignIn extends React.Component {
   };
 
   render() {
+    const { email, password, errorMessage } = this.state;
     return (
       <div className="sign-in">
         <h2 className="title">I already have a account</h2>
         <span>Sign in with your email and password</span>
-        <form onSubmit={this.submit}>
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
             type="email"
             label="Email"
-            value={this.state.email}
+            value={email}
             handleChange={this.handleChange}
             required
           />
@@ -45,10 +57,11 @@ class SignIn extends React.Component {
             name="password"
             type="password"
             label="Password"
-            value={this.state.password}
+            value={password}
             handleChange={this.handleChange}
             required
           />
+          <span className="error-message">{errorMessage}</span>
           <div className="btn">
             <Button type="submit" value="Sign In" />
             <Button
