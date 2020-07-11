@@ -4,8 +4,10 @@ import HomePage from "./page/home-page/HomePage";
 
 const App = () => {
   return (
-    <div className="container">
-      <HomePage />
+    <div className="app">
+      <div className="container">
+        <HomePage />
+      </div>
     </div>
   );
 };
