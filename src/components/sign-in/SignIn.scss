@@ -1,0 +1,48 @@
+.sign-in {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 80px auto;
+
+  .title {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  span {
+    text-align: center;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
+
+@media (min-width: 600px) {
+  .sign-in {
+    width: 300px;
+
+    .title {
+      text-align: left;
+    }
+
+    span {
+      text-align: left;
+    }
+
+    .button {
+      margin-right: 25px;
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 960px) {
+  .sign-in {
+    width: 380px;
+  }
+}
