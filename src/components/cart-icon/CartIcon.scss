@@ -6,10 +6,15 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   .shopping-icon {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
   }
 
   .item-count {
@@ -17,6 +22,6 @@
     font-size: 14px;
     font-weight: bold;
     bottom: 12px;
-    color: red;
+    color: rgb(255, 0, 0);
   }
 }
