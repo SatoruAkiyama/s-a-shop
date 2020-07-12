@@ -1,6 +1,8 @@
 import React from "react";
-import DIRECTORY_DATA from "../../data/directoryData";
+
 import "./Directory.scss";
+
+import DIRECTORY_DATA from "../../data/directoryData";
 import MenuItem from "../menu-item/MenuItem";
 
 class Directory extends React.Component {

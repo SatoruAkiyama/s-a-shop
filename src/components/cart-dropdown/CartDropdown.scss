@@ -1,15 +1,16 @@
 .cart-dropdown {
-  position: fixed;
   width: 270px;
   height: 400px;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border: 1px solid #000000;
-  background-color: #ffffff;
+  padding: 10px 0 10px 10px;
+  border: 3px solid #000000;
+  background-color: #fafafa;
+  z-index: 5;
+
+  position: fixed;
   top: 90px;
   right: 10px;
-  z-index: 5;
 
   .cart-items {
     height: 350px;
@@ -50,8 +51,22 @@
 
     .empty-message {
       margin: 100px auto;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.3em;
+      font-size: 17px;
+      padding-bottom: 5px;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
     }
+  }
+
+  .close {
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .cart-items:hover {
@@ -62,6 +77,13 @@
   .btn {
     max-width: 100%;
     margin: 0 auto;
+
+    .empty-message {
+      margin-bottom: 30px;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 0.3em;
+    }
   }
 
   button {
@@ -72,12 +94,23 @@
 @media (min-width: 600px) {
   .cart-dropdown {
     right: 20px;
-    transform: none;
   }
 }
 
 @media (min-width: 960px) {
   .cart-dropdown {
-    right: 60px;
+    right: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cart-dropdown {
+    right: 90px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .cart-dropdown {
+    right: 120px;
   }
 }
