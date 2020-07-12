@@ -26,7 +26,7 @@ class SignIn extends React.Component {
       });
     } catch (e) {
       this.setState({
-        errorMessage: "Password don't match!",
+        errorMessage: e.message,
       });
       console.log(e);
     }
