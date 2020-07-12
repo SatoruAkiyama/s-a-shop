@@ -13,6 +13,7 @@ class SignUp extends React.Component {
       password: "",
       confirmPassword: "",
       errorMessage: "",
+      signInErrorMesssage: "",
     };
   }
 
@@ -44,8 +45,13 @@ class SignUp extends React.Component {
         password: "",
         confirmPassword: "",
         errorMessage: "",
+        signInErrorMesssage: "",
       });
     } catch (e) {
+      this.setState({
+        errorMessage: "",
+        signInErrorMesssage: e.message,
+      });
       console.error(e);
     }
   };
@@ -57,6 +63,7 @@ class SignUp extends React.Component {
       password,
       confirmPassword,
       errorMessage,
+      signInErrorMesssage,
     } = this.state;
     return (
       <div className="sign-up">
@@ -87,7 +94,6 @@ class SignUp extends React.Component {
             label="Password"
             required
           />
-          <span className="error-message">{errorMessage}</span>
           <FormInput
             type="password"
             name="confirmPassword"
@@ -96,6 +102,8 @@ class SignUp extends React.Component {
             label="Confirm Password"
             required
           />
+          <span className="error-message">{errorMessage}</span>
+          <span className="error-message">{signInErrorMesssage}</span>
           <div className="btn">
             <Button type="submit" value="Sign up" />
           </div>
