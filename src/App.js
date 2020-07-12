@@ -1,13 +1,13 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { auth, createUserProfileDocument } from "./firebase/firebaseUtil";
-import { connect } from "react-redux";
-import setCurrentUser from "./redux/user/userActions";
 import "./App.css";
 import Header from "./components/header/Header";
 import HomePage from "./pages/home-page/HomePage";
 import ShopPage from "./pages/shop-page/ShopPage";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/SignInAndSignUpPage";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { auth, createUserProfileDocument } from "./firebase/firebaseUtil";
+import { connect } from "react-redux";
+import setCurrentUser from "./redux/user/userActions";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -59,8 +59,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
