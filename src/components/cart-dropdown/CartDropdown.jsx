@@ -32,19 +32,19 @@ const CartDropdown = ({ cartItems, history, dispatch }) => {
         )}
       </div>
       <div className="btn">
-        {history.location.pathname === "/shop" ? (
+        {history.location.pathname === "/checkout" ? (
           <Button
-            value="GO TO CHECKOUT"
+            value="GO TO SHOP"
             onClick={() => {
-              history.push("/checkout");
+              history.push("/shop");
               dispatch(cartToggle());
             }}
           />
         ) : (
           <Button
-            value="GO TO SHOP"
+            value="GO TO CHECKOUT"
             onClick={() => {
-              history.push("/shop");
+              history.push("/checkout");
               dispatch(cartToggle());
             }}
           />
