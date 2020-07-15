@@ -11,7 +11,7 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => {
     <div className="collection-preview">
       <div className="collection-title">
         {" "}
-        <h1 onClick={() => history.push(`${match.url}/${routeName}`)}>
+        <h1 onClick={() => history.push(`${match.path}/${routeName}`)}>
           {title.toUpperCase()}
         </h1>
       </div>
@@ -25,7 +25,7 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => {
         <Button
           value="MORE"
           inverted
-          onClick={() => history.push(`${match.url}/${routeName}`)}
+          onClick={() => history.push(`${match.path}/${routeName}`)}
         />
       </div>
     </div>
