@@ -17,3 +17,23 @@
     }
   }
 }
+
+@media (max-width: 800px) {
+  .collection-page {
+    align-items: center;
+
+    .items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .collection-page {
+    .preview {
+      grid-gap: 30px 20px;
+    }
+  }
+}

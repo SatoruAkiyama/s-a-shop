@@ -27,3 +27,23 @@
     margin: 30px auto;
   }
 }
+
+@media (max-width: 800px) {
+  .collection-preview {
+    align-items: center;
+
+    .preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .collection-preview {
+    .preview {
+      grid-gap: 30px 20px;
+    }
+  }
+}

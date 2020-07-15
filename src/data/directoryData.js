@@ -23,7 +23,7 @@ const DIRECTORY_DATA = [
   {
     title: "womens",
     imageUrl:
-      "https://images.pexels.com/photos/871494/pexels-photo-871494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/2467393/pexels-photo-2467393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     size: "large",
     id: 4,
     linkUrl: "shop/womens",
@@ -31,7 +31,7 @@ const DIRECTORY_DATA = [
   {
     title: "mens",
     imageUrl:
-      "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940s",
+      "https://images.pexels.com/photos/2975405/pexels-photo-2975405.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     size: "large",
     id: 5,
     linkUrl: "shop/mens",

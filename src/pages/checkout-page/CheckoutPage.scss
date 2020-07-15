@@ -43,3 +43,13 @@
     margin-top: 50px;
   }
 }
+
+@media (max-width: 600px) {
+  .checkout-page {
+    font-size: 17px;
+
+    .checkout-header {
+      font-size: 17px;
+    }
+  }
+}
