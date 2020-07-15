@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { store, persistor } from "./redux/store";
+import ScrollTop from "./components/scroll-top/ScrollTop";
 import App from "./App";
 
 import "./index.css";
@@ -12,9 +13,11 @@ import "./index.css";
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <PersistGate persistor={persistor}>
-        <App />
-      </PersistGate>
+      <ScrollTop>
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </ScrollTop>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
