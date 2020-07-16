@@ -31,7 +31,7 @@ const DIRECTORY_DATA = [
   {
     title: "mens",
     imageUrl:
-      "https://images.pexels.com/photos/2975405/pexels-photo-2975405.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/3039183/pexels-photo-3039183.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     size: "large",
     id: 5,
     linkUrl: "shop/mens",
