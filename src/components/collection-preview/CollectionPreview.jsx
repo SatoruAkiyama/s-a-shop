@@ -1,17 +1,19 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import "./CollectionPreview.scss";
 
 import CollectionItem from "../collection-item/CollectionItem";
 import Button from "../button/Button";
 
-const CollectionPreview = ({ title, items, history, match, routeName }) => {
+const CollectionPreview = ({ title, items, routeName }) => {
+  const history = useHistory();
+  const { pathname } = useLocation();
   return (
     <div className="collection-preview">
       <div className="collection-title">
         {" "}
-        <h1 onClick={() => history.push(`${match.path}/${routeName}`)}>
+        <h1 onClick={() => history.push(`${pathname}/${routeName}`)}>
           {title.toUpperCase()}
         </h1>
       </div>
@@ -25,11 +27,11 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => {
         <Button
           value="MORE"
           inverted
-          onClick={() => history.push(`${match.path}/${routeName}`)}
+          onClick={() => history.push(`${pathname}/${routeName}`)}
         />
       </div>
     </div>
   );
 };
 
-export default withRouter(CollectionPreview);
+export default CollectionPreview;
