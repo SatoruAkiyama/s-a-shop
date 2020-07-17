@@ -11,29 +11,15 @@ import ShopPage from "./pages/shop-page/ShopPage";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/SignInAndSignUpPage";
 import CheckoutPage from "./pages/checkout-page/CheckoutPage";
 
-import { auth, createUserProfileDocument } from "./firebase/firebaseUtil";
-import { setCurrentUser } from "./redux/user/userActions";
 import { selectCurrentUser } from "./redux/user/userSelector";
+import { checkUserSession } from "./redux/user/userActions";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
-
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot((snapShot) =>
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          })
-        );
-      } else {
-        setCurrentUser(userAuth);
-      }
-    });
+    const { checkUserSession } = this.props;
+    this.unsubscribeFromAuth = checkUserSession();
   }
 
   componentWillUnmount() {
@@ -41,6 +27,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
     return (
       <div className="app">
         <Header />
@@ -51,11 +38,7 @@ class App extends React.Component {
             <Route
               path="/sing-in"
               render={() =>
-                this.props.currentUser ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignInAndSignUpPage />
-                )
+                currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
               }
             />
             <Route exact path="/checkout" component={CheckoutPage} />
@@ -71,7 +54,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  checkUserSession: () => dispatch(checkUserSession()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

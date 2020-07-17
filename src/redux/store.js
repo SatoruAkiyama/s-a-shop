@@ -4,7 +4,7 @@ import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 
 import rootReducer from "./rootReducer";
-import rootSaga from "./shop/rootSaga";
+import rootSaga from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 

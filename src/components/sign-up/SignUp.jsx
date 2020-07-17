@@ -1,8 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { signUpStart } from "../../redux/user/userActions";
+import { selectSignUpErrorMessage } from "../../redux/user/userSelector";
+
 import "./SignUp.scss";
+
 import FormInput from "../form-input/FormInput";
 import Button from "../button/Button";
-import { auth, createUserProfileDocument } from "../../firebase/firebaseUtil";
 
 class SignUp extends React.Component {
   constructor() {
@@ -13,7 +19,6 @@ class SignUp extends React.Component {
       password: "",
       confirmPassword: "",
       errorMessage: "",
-      signInErrorMesssage: "",
     };
   }
 
@@ -24,35 +29,20 @@ class SignUp extends React.Component {
     });
   };
 
-  handleSubmit = async (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
+    const { signUpStart } = this.props;
     const { displayName, email, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
       this.setState({
         errorMessage: "Password don't match!",
       });
       return;
-    }
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserProfileDocument(user, { displayName });
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        errorMessage: "",
-        signInErrorMesssage: "",
-      });
-    } catch (e) {
+    } else {
       this.setState({
         errorMessage: "",
-        signInErrorMesssage: e.message,
       });
-      console.error(e);
+      signUpStart(displayName, email, password);
     }
   };
 
@@ -63,8 +53,8 @@ class SignUp extends React.Component {
       password,
       confirmPassword,
       errorMessage,
-      signInErrorMesssage,
     } = this.state;
+    const { signInErrorMesssage } = this.props;
     return (
       <div className="sign-up">
         <h2 className="title">I don't have account</h2>
@@ -113,4 +103,13 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = createStructuredSelector({
+  signInErrorMesssage: selectSignUpErrorMessage,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (displayName, email, password) =>
+    dispatch(signUpStart({ displayName, email, password })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
