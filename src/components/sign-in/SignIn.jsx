@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -13,68 +13,59 @@ import {
 } from "../../redux/user/userActions";
 import { selectErrorMessage } from "../../redux/user/userSelector";
 
-class SignIn extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-    };
-  }
+const SignIn = ({ emailSignInStart, googleSignInStart, errorMessage }) => {
+  const [userInfo, setUserInfo] = useState({ email: "", password: "" });
 
-  handleSubmit = async (e) => {
+  const { email, password } = userInfo;
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { emailSignInStart } = this.props;
-    const { email, password } = this.state;
-    emailSignInStart(email, password);
+    emailSignInStart(userInfo);
   };
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
     const { value, name } = e.target;
-    this.setState({
+    setUserInfo({
+      ...userInfo,
       [name]: value,
     });
   };
 
-  render() {
-    const { email, password } = this.state;
-    const { googleSignInStart, errorMessage } = this.props;
-    return (
-      <div className="sign-in">
-        <h2 className="title">I already have a account</h2>
-        <span>Sign in with your email and password</span>
-        <form onSubmit={this.handleSubmit}>
-          <FormInput
-            name="email"
-            type="email"
-            label="Email"
-            value={email}
-            handleChange={this.handleChange}
-            required
+  return (
+    <div className="sign-in">
+      <h2 className="title">I already have a account</h2>
+      <span>Sign in with your email and password</span>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          name="email"
+          type="email"
+          label="Email"
+          value={email}
+          handleChange={handleChange}
+          required
+        />
+        <FormInput
+          name="password"
+          type="password"
+          label="Password"
+          value={password}
+          handleChange={handleChange}
+          required
+        />
+        <span className="error-message">{errorMessage}</span>
+        <div className="btn">
+          <Button type="submit" value="Sign In" />
+          <Button
+            type="button"
+            value="Sign In With Google"
+            onClick={googleSignInStart}
+            isGoogleSignIn
           />
-          <FormInput
-            name="password"
-            type="password"
-            label="Password"
-            value={password}
-            handleChange={this.handleChange}
-            required
-          />
-          <span className="error-message">{errorMessage}</span>
-          <div className="btn">
-            <Button type="submit" value="Sign In" />
-            <Button
-              type="button"
-              value="Sign In With Google"
-              onClick={googleSignInStart}
-              isGoogleSignIn
-            />
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
+        </div>
+      </form>
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   errorMessage: selectErrorMessage,
@@ -82,8 +73,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
-  emailSignInStart: (email, password) =>
-    dispatch(emailSignInStart({ email, password })),
+  emailSignInStart: (userInfo) => dispatch(emailSignInStart(userInfo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

@@ -70,8 +70,12 @@ export function* signOut() {
 }
 
 export function* signUpAndSignIn({
-  payload: { displayName, email, password },
+  payload: { displayName, email, password, confirmPassword },
 }) {
+  if (password !== confirmPassword) {
+    yield put(signUpFailure("Password don't match!"));
+    return;
+  }
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield put(signUpSuccess());
