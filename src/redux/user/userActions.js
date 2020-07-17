@@ -62,6 +62,7 @@ export const signUpStart = (userInfo) => {
 export const signUpSuccess = () => {
   return {
     type: UserActionTypes.SIGN_UP_SUCCESS,
+    payload: "Success!",
   };
 };
 

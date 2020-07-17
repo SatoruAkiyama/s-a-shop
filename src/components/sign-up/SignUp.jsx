@@ -42,7 +42,7 @@ class SignUp extends React.Component {
       this.setState({
         errorMessage: "",
       });
-      signUpStart(displayName, email, password);
+      signUpStart({ displayName, email, password });
     }
   };
 
@@ -108,8 +108,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (displayName, email, password) =>
-    dispatch(signUpStart({ displayName, email, password })),
+  signUpStart: (userInfo) => dispatch(signUpStart(userInfo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
