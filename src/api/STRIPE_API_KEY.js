@@ -1,0 +1,3 @@
+const STRIPE_API_KEY =
+  "pk_test_51H3H2jFkI3rfmiPu83VIoBl8bl3rZJnpJVkBpy167pxJLsbZKOkvkoUF3PZVywQbVJgfDw6MrGkGPz8QDUNdgujw000vcqXoiH";
+export default STRIPE_API_KEY;
