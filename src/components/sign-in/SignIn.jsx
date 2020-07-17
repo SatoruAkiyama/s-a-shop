@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./SignIn.scss";
 
@@ -13,14 +12,18 @@ import {
 } from "../../redux/user/userActions";
 import { selectErrorMessage } from "../../redux/user/userSelector";
 
-const SignIn = ({ emailSignInStart, googleSignInStart, errorMessage }) => {
+const SignIn = () => {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
 
   const { email, password } = userInfo;
 
+  const dispatch = useDispatch();
+
+  const errorMessage = useSelector(selectErrorMessage);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailSignInStart(userInfo);
+    dispatch(emailSignInStart(userInfo));
   };
 
   const handleChange = (e) => {
@@ -58,7 +61,7 @@ const SignIn = ({ emailSignInStart, googleSignInStart, errorMessage }) => {
           <Button
             type="button"
             value="Sign In With Google"
-            onClick={googleSignInStart}
+            onClick={() => dispatch(googleSignInStart())}
             isGoogleSignIn
           />
         </div>
@@ -67,13 +70,4 @@ const SignIn = ({ emailSignInStart, googleSignInStart, errorMessage }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  errorMessage: selectErrorMessage,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  googleSignInStart: () => dispatch(googleSignInStart()),
-  emailSignInStart: (userInfo) => dispatch(emailSignInStart(userInfo)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default SignIn;

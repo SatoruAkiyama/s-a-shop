@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 
 import { signUpStart } from "../../redux/user/userActions";
 import { selectSignUpErrorMessage } from "../../redux/user/userSelector";
@@ -10,7 +9,7 @@ import "./SignUp.scss";
 import FormInput from "../form-input/FormInput";
 import Button from "../button/Button";
 
-const SignUp = ({ signUpStart, signInErrorMesssage }) => {
+const SignUp = () => {
   const [userInfo, setUserInfo] = useState({
     displayName: "",
     email: "",
@@ -19,6 +18,10 @@ const SignUp = ({ signUpStart, signInErrorMesssage }) => {
   });
 
   const { displayName, email, password, confirmPassword } = userInfo;
+
+  const dispatch = useDispatch();
+
+  const signInErrorMesssage = useSelector(selectSignUpErrorMessage);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +33,7 @@ const SignUp = ({ signUpStart, signInErrorMesssage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUpStart(userInfo);
+    dispatch(signUpStart(userInfo));
   };
 
   return (
@@ -79,12 +82,4 @@ const SignUp = ({ signUpStart, signInErrorMesssage }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  signInErrorMesssage: selectSignUpErrorMessage,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (userInfo) => dispatch(signUpStart(userInfo)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default SignUp;
