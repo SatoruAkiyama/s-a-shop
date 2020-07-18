@@ -18,7 +18,7 @@ const StripeButton = ({ price }) => {
         token: token,
       },
     })
-      .then((res) => {
+      .then((response) => {
         alert("Succesful Payment!");
       })
       .catch((error) => {
