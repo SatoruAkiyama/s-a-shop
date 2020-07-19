@@ -43,7 +43,7 @@ const App = () => {
                 }
               />
               <Route exact path="/checkout" component={CheckoutPage} />
-              <Route component={ErrorBoundary} />
+              <Route render={() => <Redirect to="/" />} />
             </Switch>
           </Suspense>
         </ErrorBoundary>
