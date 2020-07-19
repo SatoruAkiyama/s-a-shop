@@ -1,17 +1,18 @@
 .menu-item {
-  min-width: 280px;
+  min-width: 100%;
   height: 240px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  margin: 0 7.5px 15px;
   position: relative;
   overflow: hidden;
+  margin: 15px auto;
 
   &.large {
     height: 320px;
+    min-width: 100%;
   }
 
   &:first-child {
@@ -79,5 +80,10 @@
 @media (min-width: 600px) {
   .menu-item {
     min-width: 30%;
+    margin: 0 7.5px 15px;
+
+    &.large {
+      min-width: 45%;
+    }
   }
 }
