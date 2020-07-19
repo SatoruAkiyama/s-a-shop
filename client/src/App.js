@@ -31,9 +31,9 @@ const App = () => {
     <div className="app">
       <Header />
       <div className="container">
-        <Switch>
-          <ErrorBoundary>
-            <Suspense fallback={<Spinner />}>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/shop" component={ShopPage} />
               <Route
@@ -43,10 +43,10 @@ const App = () => {
                 }
               />
               <Route exact path="/checkout" component={CheckoutPage} />
-              <Route render={() => <Redirect to="/" />} />
-            </Suspense>
-          </ErrorBoundary>
-        </Switch>
+              <Route component={ErrorBoundary} />
+            </Switch>
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );
