@@ -16,3 +16,8 @@ export const selectSignUpErrorMessage = createSelector(
   [selectUser],
   (user) => user.signUpErrorMessage
 );
+
+export const selectCurrentUserId = createSelector(
+  [selectCurrentUser],
+  (currentUser) => (currentUser ? currentUser.id : null)
+);

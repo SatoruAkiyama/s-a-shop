@@ -13,12 +13,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   if (!snapShot.exists) {
     const { email } = userAuth;
-    const createdAt = new Date();
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const createdAt = `${year}/${month}/${day}`;
+    const purchaseHistory = [];
 
     try {
       await userRef.set({
         email,
         createdAt,
+        purchaseHistory,
         ...additionalData,
       });
     } catch (error) {
@@ -26,6 +32,26 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     }
   }
   return userRef;
+};
+
+export const addPurchaseHistory = async (cartItems, userId) => {
+  if (userId) {
+    const userRef = firestore.doc(`users/${userId}`);
+    const purchaseHistory = cartItems;
+    console.log(userRef);
+    try {
+      userRef.set(
+        {
+          purchaseHistory: purchaseHistory,
+        },
+        { merge: true }
+      );
+    } catch (error) {
+      console.log("error", error.message);
+    }
+  } else {
+    return;
+  }
 };
 
 export const addCollectionAndDocument = async (collectionKey, objectsToAdd) => {
