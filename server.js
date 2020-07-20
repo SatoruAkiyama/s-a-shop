@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const compression = require("compression");
+const enforce = require("express-sslify");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
@@ -20,9 +21,8 @@ const configureRoutes = require("./routes");
 configureRoutes(app);
 
 if (process.env.NODE_ENV === "production") {
-  // Serve any static files
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, "client/build")));
-  // Handle React routing, return all requests to React app
   app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
@@ -31,4 +31,8 @@ if (process.env.NODE_ENV === "production") {
 app.listen(port, (error) => {
   if (error) throw error;
   console.log("Server running on port " + port);
+});
+
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
 });

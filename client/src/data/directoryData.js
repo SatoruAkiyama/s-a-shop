@@ -25,7 +25,7 @@ const DIRECTORY_DATA = [
   {
     title: "hats",
     imageUrl:
-      "https://images.pexels.com/photos/1474213/pexels-photo-1474213.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://images.pexels.com/photos/2043868/pexels-photo-2043868.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     id: 4,
     linkUrl: "shop/hats",
   },
