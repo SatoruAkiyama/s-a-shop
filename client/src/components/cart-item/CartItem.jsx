@@ -11,6 +11,11 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
         <span className="price">
           {quantity} x ${price}
         </span>
+        <div className="cal">
+          <span className="quantityChange">+</span>
+          <span className="quantityChange">-</span>
+          <span className="quantityChange">x</span>
+        </div>
       </div>
     </div>
   );

@@ -16,10 +16,9 @@
     height: 350px;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: scroll;
     scrollbar-color: rgba(80, 80, 80, 0) rgba(0, 0, 0, 0);
     scrollbar-width: thin;
-    overflow: auto;
     color: rgba(80, 80, 80, 0.2);
     transition: all 0.3s;
     margin-bottom: 10px;
