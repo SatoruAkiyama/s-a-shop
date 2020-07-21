@@ -1,8 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { clearItem, addItem, removeItem } from "../../redux/cart/cartActions";
 
 import "./CartItem.scss";
 
-const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
+const CartItem = ({ item }) => {
+  const { imageUrl, price, name, quantity } = item;
+  const dispatch = useDispatch();
+
   return (
     <div className="cart-item">
       <img src={imageUrl} alt={imageUrl} />
@@ -12,9 +18,24 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
           {quantity} x ${price}
         </span>
         <div className="cal">
-          <span className="quantityChange">+</span>
-          <span className="quantityChange">-</span>
-          <span className="quantityChange">x</span>
+          <span
+            className="quantityChange"
+            onClick={() => dispatch(addItem(item))}
+          >
+            +
+          </span>
+          <span
+            className="quantityChange"
+            onClick={() => dispatch(removeItem(item))}
+          >
+            -
+          </span>
+          <span
+            className="quantityChange"
+            onClick={() => dispatch(clearItem(item))}
+          >
+            x
+          </span>
         </div>
       </div>
     </div>
