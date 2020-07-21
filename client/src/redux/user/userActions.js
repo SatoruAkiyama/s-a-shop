@@ -72,3 +72,10 @@ export const signUpFailure = (e) => {
     payload: e,
   };
 };
+
+export const addItemToHistory = (items) => {
+  return {
+    type: UserActionTypes.ADD_ITEM_TO_HISTORY,
+    payload: items,
+  };
+};

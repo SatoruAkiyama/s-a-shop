@@ -32,3 +32,9 @@ export const clearCart = () => {
     type: CartActionTypes.CLEAR_CART,
   };
 };
+
+export const checkOut = () => {
+  return {
+    type: CartActionTypes.CHECK_OUT,
+  };
+};

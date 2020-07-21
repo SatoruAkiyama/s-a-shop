@@ -1,20 +1,22 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import STRIPE_API_KEY from "../../api/STRIPE_API_KEY";
 import logo from "../../assets/logo.jpg";
 
 import { selectCartItems } from "../../redux/cart/cartSelector";
-import { selectCurrentUserId } from "../../redux/user/userSelector";
-import { addPurchaseHistory } from "../../firebase/firebaseUtil";
 
-const StripeButton = ({ price }) => {
+import { addItemToHistory } from "../../redux/user/userActions";
+
+const StripeButton = ({ price, setCheckout }) => {
   const priceForStripe = price * 100;
   const stripeApiKey = STRIPE_API_KEY;
-  const items = useSelector(selectCartItems);
-  const currentUserId = useSelector(selectCurrentUserId);
+
+  const cartItems = useSelector(selectCartItems);
+
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     axios({
@@ -26,10 +28,10 @@ const StripeButton = ({ price }) => {
       },
     })
       .then((response) => {
-        alert("Succesful Payment! Thank You!");
+        dispatch(addItemToHistory(cartItems));
       })
       .then(() => {
-        addPurchaseHistory(items, currentUserId);
+        setCheckout(true);
       })
       .catch((error) => {
         console.log("Payment Error: ", error);

@@ -10,6 +10,7 @@ const UserActionTypes = {
   SIGN_UP_START: "SIGN_UP_START",
   SIGN_UP_SUCCESS: "SIGN_UP_SUCCESS",
   SIGN_UP_FAILURE: "SIGN_UP_FAILURE",
+  ADD_ITEM_TO_HISTORY: "ADD_ITEM_TO_HISTORY",
 };
 
 export default UserActionTypes;

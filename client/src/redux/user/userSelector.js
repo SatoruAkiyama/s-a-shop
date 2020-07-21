@@ -21,3 +21,8 @@ export const selectCurrentUserId = createSelector(
   [selectCurrentUser],
   (currentUser) => (currentUser ? currentUser.id : null)
 );
+
+export const selectCurrentUserPurchaseHistory = createSelector(
+  [selectCurrentUser],
+  (currentUser) => (currentUser ? currentUser.purchaseHistory : null)
+);

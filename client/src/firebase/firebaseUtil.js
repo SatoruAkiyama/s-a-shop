@@ -34,18 +34,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-export const addPurchaseHistory = async (cartItems, userId) => {
+export const addPurchaseHistory = async (
+  currentUserPurchaseHistory,
+  userId
+) => {
   if (userId) {
+    console.log(currentUserPurchaseHistory);
     const userRef = firestore.doc(`users/${userId}`);
-    const purchaseHistory = cartItems;
-    console.log(userRef);
     try {
       userRef.set(
         {
-          purchaseHistory: purchaseHistory,
+          purchaseHistory: currentUserPurchaseHistory,
         },
         { merge: true }
       );
+      console.log("success");
     } catch (error) {
       console.log("error", error.message);
     }

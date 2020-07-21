@@ -1,4 +1,5 @@
 import UserActionTypes from "./userTypes";
+import { changeHistory } from "./userUtil";
 
 const INITiAL_STATE = {
   currentUser: null,
@@ -36,6 +37,11 @@ const userReducer = (state = INITiAL_STATE, action) => {
       return {
         ...state,
         signUpErrorMessage: action.payload,
+      };
+    case UserActionTypes.ADD_ITEM_TO_HISTORY:
+      return {
+        ...state,
+        currentUser: changeHistory(state.currentUser, action.payload),
       };
     default:
       return state;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -13,15 +13,20 @@ import "./CheckoutPage.scss";
 import CheckoutItem from "../../components/checkout-item/CheckoutItem";
 import StripeButton from "../../components/stripe-button/StripeButton";
 import Button from "../../components/button/Button";
+import Thanks from "../../components/thanks/Thanks";
 
 const Checkout = () => {
+  const [checkOutDone, setCheckout] = useState(false);
+
   const cartItems = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal);
   const currentUserId = useSelector(selectCurrentUserId);
 
   const { push } = useHistory();
 
-  return (
+  return checkOutDone ? (
+    <Thanks />
+  ) : (
     <div className="checkout-page">
       <div className="checkout-header">
         <div className="header-block">
@@ -55,7 +60,7 @@ const Checkout = () => {
               4242 4242 4242 4242 <br />
               -Exp: 07/20 - CVV: 123
             </div>
-            <StripeButton price={total} />
+            <StripeButton price={total} setCheckout={setCheckout} />
           </>
         ) : null
       ) : (
