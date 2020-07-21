@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import Spinner from "./components/spinner/Spinner";
 import ErrorBoundary from "./components/error-boundary/ErrorBoundary";
 
@@ -48,6 +49,7 @@ const App = () => {
           </Suspense>
         </ErrorBoundary>
       </div>
+      <Footer />
     </div>
   );
 };

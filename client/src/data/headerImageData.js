@@ -2,7 +2,7 @@ const headerImageData = {
   home:
     "https://images.pexels.com/photos/2467393/pexels-photo-2467393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   collectionOverview:
-    "https://images.pexels.com/photos/3951790/pexels-photo-3951790.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/206430/pexels-photo-206430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   womens:
     "https://images.pexels.com/photos/3605015/pexels-photo-3605015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   mens:
