@@ -11,7 +11,7 @@
   margin: 15px auto;
 
   &.large {
-    height: 320px;
+    height: 270px;
     min-width: 100%;
   }
 
@@ -84,6 +84,7 @@
 
     &.large {
       min-width: 45%;
+      height: 320px;
     }
   }
 }

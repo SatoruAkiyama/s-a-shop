@@ -1,6 +1,13 @@
 .homepage {
+  margin-top: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .homepage {
+    margin-top: 380px;
+  }
 }

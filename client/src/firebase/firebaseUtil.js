@@ -48,7 +48,6 @@ export const addPurchaseHistory = async (
         },
         { merge: true }
       );
-      console.log("success");
     } catch (error) {
       console.log("error", error.message);
     }

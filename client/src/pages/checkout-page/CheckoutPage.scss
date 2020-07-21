@@ -1,11 +1,11 @@
 .checkout-page {
   max-width: 800px;
-  padding: 1em;
+  padding: 0.5em;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto 0;
+  margin: 350px auto 0;
 
   .checkout-header {
     width: 100%;
@@ -52,9 +52,15 @@
 @media (max-width: 600px) {
   .checkout-page {
     font-size: 17px;
+    margin-top: 200px;
 
     .checkout-header {
       font-size: 17px;
+      .header-block {
+        &:last-child {
+          width: 10%;
+        }
+      }
     }
   }
 }

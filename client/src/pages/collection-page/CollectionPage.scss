@@ -1,11 +1,7 @@
 .collection-page {
   display: flex;
   flex-direction: column;
-
-  .title {
-    font-size: 38px;
-    margin: 0 auto 30px;
-  }
+  margin-top: 400px;
 
   .items {
     display: grid;
@@ -32,6 +28,7 @@
 
 @media (max-width: 600px) {
   .collection-page {
+    margin-top: 200px;
     .preview {
       grid-gap: 30px 20px;
     }

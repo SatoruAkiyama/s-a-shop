@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./Header.scss";
 
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/header-logo.png";
 import CartIcon from "../cart-icon/CartIcon";
 import CartDropdown from "../cart-dropdown/CartDropdown";
 
@@ -19,34 +19,36 @@ const Header = () => {
 
   return (
     <div className="header">
-      <Link to="/" className="logo-container">
-        <div className="logo">
-          <img src={logo} alt="S&A" height="40px" width="40px" />
+      <div className="header-container">
+        <Link to="/" className="logo-container">
+          <div className="logo">
+            <img src={logo} alt="S&A" height="40px" width="40px" />
+          </div>
+        </Link>
+        <div className="options">
+          <Link className="option" to="/">
+            HOME
+          </Link>
+          <Link className="option" to="/shop">
+            SHOP
+          </Link>
+          {currentUser ? (
+            <Link
+              to="/"
+              className="option"
+              onClick={() => dispatch(signOutStart())}
+            >
+              SIGN OUT
+            </Link>
+          ) : (
+            <Link className="option" to="/sign-in">
+              SIGN IN
+            </Link>
+          )}
+          <CartIcon />
         </div>
-      </Link>
-      <div className="options">
-        <Link className="option" to="/">
-          HOME
-        </Link>
-        <Link className="option" to="/shop">
-          SHOP
-        </Link>
-        {currentUser ? (
-          <Link
-            to="/"
-            className="option"
-            onClick={() => dispatch(signOutStart())}
-          >
-            SIGN OUT
-          </Link>
-        ) : (
-          <Link className="option" to="/sign-in">
-            SIGN IN
-          </Link>
-        )}
-        <CartIcon />
+        {hidden ? null : <CartDropdown />}
       </div>
-      {hidden ? null : <CartDropdown />}
     </div>
   );
 };

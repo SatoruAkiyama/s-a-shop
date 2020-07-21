@@ -1,4 +1,11 @@
 .collection-overview {
   display: flex;
   flex-direction: column;
+  margin-top: 400px;
+}
+
+@media (max-width: 600px) {
+  .collection-overview {
+    margin-top: 200px;
+  }
 }
