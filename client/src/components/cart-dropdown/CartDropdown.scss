@@ -7,7 +7,7 @@
   border: 3px solid #000000;
   background-color: #fafafa;
   z-index: 5;
-
+  overflow: auto;
   position: fixed;
   top: 90px;
   right: 10px;
@@ -16,7 +16,7 @@
     height: 350px;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow: scroll;
     scrollbar-color: rgba(80, 80, 80, 0) rgba(0, 0, 0, 0);
     scrollbar-width: thin;
     color: rgba(80, 80, 80, 0.2);
