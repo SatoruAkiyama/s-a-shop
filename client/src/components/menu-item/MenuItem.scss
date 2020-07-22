@@ -16,11 +16,11 @@
   }
 
   &:first-child {
-    margin-right: 7.5px;
+    margin-right: 0px;
   }
 
   &:last-child {
-    margin-left: 7.5px;
+    margin-left: 0px;
   }
 
   .background-image {
@@ -85,6 +85,14 @@
     &.large {
       min-width: 45%;
       height: 320px;
+    }
+
+    &:first-child {
+      margin-right: 7.5px;
+    }
+
+    &:last-child {
+      margin-left: 7.5px;
     }
   }
 }
