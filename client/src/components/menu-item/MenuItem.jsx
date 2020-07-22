@@ -1,14 +1,14 @@
 import React from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./MenuItem.scss";
 
 const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   const history = useHistory();
-  const { pathname } = useLocation();
+
   return (
     <div
       className={`menu-item ${size}`}
-      onClick={() => history.push(`${pathname}${linkUrl}`)}
+      onClick={() => history.push(`${linkUrl}`)}
     >
       <div
         className="background-image"

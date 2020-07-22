@@ -16,6 +16,7 @@ const HomePage = () => {
         <p>Enjoy your life with fashion!</p>
       </HeaderImage>
       <div className="homepage">
+        <h2 className="category">CATEGORY</h2>
         <Directory />
       </div>
     </>

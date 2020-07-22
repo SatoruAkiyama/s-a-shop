@@ -1,9 +1,15 @@
 .homepage {
-  margin-top: 600px;
+  margin-top: 580px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
+
+  .category {
+    font-size: 40px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+  }
 }
 
 @media (max-width: 600px) {

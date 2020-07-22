@@ -26,6 +26,9 @@ const Footer = () => {
               <Link to="/shop">SHOP</Link>
             </div>
             <div className="option">
+              <Link to="/account">ACCOUNT</Link>
+            </div>
+            <div className="option">
               {currentUser ? (
                 <Link to="/" onClick={() => dispatch(signOutStart())}>
                   SIGN OUT
@@ -33,9 +36,6 @@ const Footer = () => {
               ) : (
                 <Link to="/sign-in">SIGN IN</Link>
               )}
-            </div>
-            <div className="option">
-              <Link to="/account">ACCOUNT</Link>
             </div>
             <div className="option">
               <Link to="/checkout">CHECKOUT</Link>

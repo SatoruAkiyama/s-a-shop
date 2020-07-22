@@ -11,6 +11,7 @@ import { signOutStart } from "../../redux/user/userActions";
 import HeaderImage from "../../components/header-image/HeaderImage";
 import AccountInfo from "../../components/account-info/AccountInfo";
 import AccountHitory from "../../components/account-hisotry/AccountHistory";
+import Directory from "../../components/directory/Directory";
 import Button from "../../components/button/Button";
 
 import headerImageData from "../../data/headerImageData";
@@ -23,8 +24,13 @@ const AccountPage = () => {
   const purchaseHistory = useSelector(selectCurrentUserPurchaseHistory);
   const history = useHistory();
   const imageUrl = headerImageData.account;
+  let accountName = accountInfo.displayName;
+  if (!accountName) {
+    accountName = null;
+  } else {
+    accountName.toUppercase();
+  }
 
-  const accountName = accountInfo.displayName.toUpperCase();
   return (
     <>
       <HeaderImage imageUrl={imageUrl}>
@@ -46,6 +52,10 @@ const AccountPage = () => {
         </div>
         <div className="account-history">
           <AccountHitory purchaseHistoryItems={purchaseHistory} />
+        </div>
+        <div className="go-shopping">
+          <h2 className="desc">Let's go shopping</h2>
+          <Directory />
         </div>
       </div>
     </>

@@ -8,8 +8,12 @@ const AccountInfo = ({ accountInfo: { displayName, email, createdAt } }) => {
     <div className="user-info">
       <h2 className="desc">Account Info</h2>
       <div className="displayName">
-        <h3>Display Name</h3>
-        <p>{displayName}</p>
+        {displayName ? (
+          <>
+            <h3>Display Name</h3>
+            <p>{displayName}</p>
+          </>
+        ) : null}
       </div>
       <div className="email">
         <h3>Email</h3>
