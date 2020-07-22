@@ -1,0 +1,27 @@
+.purchase-history-item {
+  border: 1px solid #000;
+  margin: 20px 0;
+  padding: 30px 5px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    width: 120px;
+    height: 180px;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -25,7 +25,7 @@ const ThanksPage = () => {
   const handleCheckout = async () => {
     await addPurchaseHistory(purchaseHistory, currentUserId);
     dispatch(checkOut());
-    history.push("/");
+    history.push("/account");
   };
   return (
     <div className="thanks">

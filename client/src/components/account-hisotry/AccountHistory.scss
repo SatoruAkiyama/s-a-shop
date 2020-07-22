@@ -1,0 +1,9 @@
+.purchase-history_items {
+  display: flex;
+  flex-direction: column-reverse;
+
+  .not-bought {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+}

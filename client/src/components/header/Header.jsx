@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./Header.scss";
 
@@ -10,10 +10,8 @@ import CartDropdown from "../cart-dropdown/CartDropdown";
 
 import { selectCurrentUser } from "../../redux/user/userSelector";
 import { selectCartHidden } from "../../redux/cart/cartSelector";
-import { signOutStart } from "../../redux/user/userActions";
 
 const Header = () => {
-  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const hidden = useSelector(selectCartHidden);
 
@@ -33,12 +31,8 @@ const Header = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <Link
-              to="/"
-              className="option"
-              onClick={() => dispatch(signOutStart())}
-            >
-              SIGN OUT
+            <Link to="/account" className="option">
+              ACCOUNT
             </Link>
           ) : (
             <Link className="option" to="/sign-in">

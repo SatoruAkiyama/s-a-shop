@@ -1,0 +1,28 @@
+.account-page {
+  margin-top: 350px;
+
+  .hello {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .desc {
+    font-size: 30px;
+  }
+
+  .account-info {
+    margin-bottom: 30px;
+  }
+
+  .signout-btn {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-page {
+    margin-top: 200px;
+  }
+}

@@ -15,6 +15,8 @@ const headerImageData = {
     "https://images.pexels.com/photos/932401/pexels-photo-932401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   checkout:
     "https://images.pexels.com/photos/3289167/pexels-photo-3289167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  account:
+    "https://images.pexels.com/photos/310419/pexels-photo-310419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 };
 
 export default headerImageData;

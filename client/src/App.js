@@ -18,6 +18,7 @@ const SignInAndSignUpPage = lazy(() =>
   import("./pages/sign-in-and-sign-up-page/SignInAndSignUpPage")
 );
 const CheckoutPage = lazy(() => import("./pages/checkout-page/CheckoutPage"));
+const AccountPage = lazy(() => import("./pages/account-page/AccountPage"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -40,10 +41,20 @@ const App = () => {
               <Route
                 path="/sign-in"
                 render={() =>
-                  currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
+                  currentUser ? (
+                    <Redirect to="/account" />
+                  ) : (
+                    <SignInAndSignUpPage />
+                  )
                 }
               />
               <Route exact path="/checkout" component={CheckoutPage} />
+              <Route
+                path="/account"
+                render={() =>
+                  currentUser ? <AccountPage /> : <Redirect to="/sign-in" />
+                }
+              />
               <Route render={() => <Redirect to="/" />} />
             </Switch>
           </Suspense>
