@@ -28,7 +28,7 @@ const AccountPage = () => {
   if (!accountName) {
     accountName = null;
   } else {
-    accountName.toUppercase();
+    accountName.toUpperCase();
   }
 
   return (

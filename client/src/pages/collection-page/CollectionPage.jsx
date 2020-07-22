@@ -16,7 +16,6 @@ const CollectionPage = ({ match }) => {
   );
   const { title, items } = collection;
   const imageUrl = headerImageData;
-  console.log(title);
   return (
     <>
       <HeaderImage imageUrl={imageUrl[title.toLowerCase()]}>
