@@ -2,6 +2,7 @@ import React from "react";
 
 import Directory from "../../components/directory/Directory";
 import HeaderImage from "../../components/header-image/HeaderImage";
+import Information from "../../components/information/Information";
 
 import headerImageData from "../../data/headerImageData";
 
@@ -18,6 +19,7 @@ const HomePage = () => {
       <div className="homepage">
         <h2 className="category">CATEGORY</h2>
         <Directory />
+        <Information />
       </div>
     </>
   );

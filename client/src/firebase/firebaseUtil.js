@@ -84,6 +84,16 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   }, {});
 };
 
+export const getInformationItems = async (informationItem) => {
+  const gotInformationItem = await informationItem.docs.map((doc) => {
+    const { informationItems } = doc.data();
+    return {
+      informationItems,
+    };
+  });
+  return gotInformationItem[0].informationItems;
+};
+
 export const getCuurentUser = () => {
   return new Promise((resolve, reject) => {
     auth.onAuthStateChanged((userAuth) => {
