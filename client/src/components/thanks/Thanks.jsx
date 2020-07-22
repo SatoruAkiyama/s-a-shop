@@ -31,6 +31,9 @@ const ThanksPage = () => {
     <div className="thanks">
       <div className="image" />
       <div className="contents">
+        <div className="title">
+          <h1>S&A</h1>
+        </div>
         <div className="text">
           <h2>Payment is success !!</h2>
         </div>
