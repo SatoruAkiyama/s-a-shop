@@ -15,11 +15,11 @@
     }
 
     .text {
-      top: 35%;
+      top: 30%;
 
       h1 {
         letter-spacing: 0.2em;
-        font-size: 100px;
+        font-size: 180px;
       }
     }
   }
@@ -54,7 +54,7 @@
     }
 
     p {
-      font-size: 30px;
+      font-size: 50px;
     }
   }
 }
@@ -80,11 +80,11 @@
       }
 
       .text {
-        top: 25%;
-      }
+        top: 30%;
 
-      h1 {
-        font-size: 90px;
+        h1 {
+          font-size: 90px;
+        }
       }
     }
 
@@ -93,6 +93,9 @@
 
       h1 {
         font-size: 50px;
+      }
+      p {
+        font-size: 30px;
       }
     }
   }
