@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -22,8 +22,11 @@ const ThanksPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleCheckout = async () => {
-    await addPurchaseHistory(purchaseHistory, currentUserId);
+  useEffect(() => {
+    addPurchaseHistory(purchaseHistory, currentUserId);
+  }, [purchaseHistory, currentUserId]);
+
+  const handleCheckout = () => {
     dispatch(checkOut());
     history.push("/account");
   };

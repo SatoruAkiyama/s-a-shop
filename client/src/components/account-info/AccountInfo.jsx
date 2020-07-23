@@ -3,7 +3,6 @@ import React from "react";
 import "./AccountInfo.scss";
 
 const AccountInfo = ({ accountInfo: { displayName, email, createdAt } }) => {
-  console.log(displayName, email, createdAt);
   return (
     <div className="user-info">
       <h2 className="desc">Account Info</h2>
