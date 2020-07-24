@@ -12,7 +12,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
-    const { email } = userAuth;
+    const { displayName, email } = userAuth;
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -22,6 +22,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     try {
       await userRef.set({
+        displayName,
         email,
         createdAt,
         purchaseHistory,
