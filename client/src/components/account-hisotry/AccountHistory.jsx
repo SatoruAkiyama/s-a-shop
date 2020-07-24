@@ -1,10 +1,14 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+import { selectCurrentUserPurchaseHistory } from "../../redux/user/userSelector";
+
 import PurchaseHistoryItem from "../purchase-history-item/PurchaseHistoryItem";
 
 import "./AccountHistory.scss";
 
-const AccountHistory = ({ purchaseHistoryItems }) => {
+const AccountHistory = () => {
+  const purchaseHistoryItems = useSelector(selectCurrentUserPurchaseHistory);
   return (
     <div className="user-history">
       <h2 className="desc">Purchase History</h2>

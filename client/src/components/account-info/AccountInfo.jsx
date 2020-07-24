@@ -1,8 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
+import { selectCurrentUserInfo } from "../../redux/user/userSelector";
 
 import "./AccountInfo.scss";
 
-const AccountInfo = ({ accountInfo: { displayName, email, createdAt } }) => {
+const AccountInfo = () => {
+  const accountInfo = useSelector(selectCurrentUserInfo);
+  const { displayName, email, createdAt } = accountInfo;
   return (
     <div className="user-info">
       <h2 className="desc">Account Info</h2>

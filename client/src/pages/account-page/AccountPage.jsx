@@ -2,10 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import {
-  selectCurrentUserInfo,
-  selectCurrentUserPurchaseHistory,
-} from "../../redux/user/userSelector";
+import { selectCurrentUserName } from "../../redux/user/userSelector";
 import { signOutStart } from "../../redux/user/userActions";
 
 import HeaderImage from "../../components/header-image/HeaderImage";
@@ -20,16 +17,9 @@ import "./AccountPage.scss";
 
 const AccountPage = () => {
   const dispatch = useDispatch();
-  const accountInfo = useSelector(selectCurrentUserInfo);
-  const purchaseHistory = useSelector(selectCurrentUserPurchaseHistory);
+  const accountName = useSelector(selectCurrentUserName);
   const history = useHistory();
   const imageUrl = headerImageData.account;
-  let accountName = accountInfo.displayName;
-  if (!accountName) {
-    accountName = null;
-  } else {
-    accountName.toUpperCase();
-  }
 
   return (
     <>
@@ -39,7 +29,7 @@ const AccountPage = () => {
       <div className="account-page">
         <h1 className="hello">Hello {accountName}</h1>
         <div className="account-info">
-          <AccountInfo accountInfo={accountInfo} />
+          <AccountInfo />
         </div>
         <div className="signout-btn">
           <Button
@@ -51,7 +41,7 @@ const AccountPage = () => {
           />
         </div>
         <div className="account-history">
-          <AccountHitory purchaseHistoryItems={purchaseHistory} />
+          <AccountHitory />
         </div>
         <div className="go-shopping">
           <h2 className="desc">Let's go shopping</h2>

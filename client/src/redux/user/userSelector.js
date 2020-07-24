@@ -22,13 +22,21 @@ export const selectCurrentUserId = createSelector(
   (currentUser) => (currentUser ? currentUser.id : null)
 );
 
+export const selectCurrentUserName = createSelector(
+  [selectCurrentUser],
+  (currentUser) => (currentUser ? currentUser.displayName : null)
+);
+
 export const selectCurrentUserInfo = createSelector(
   [selectCurrentUser],
-  (currentUser) => ({
-    displayName: currentUser.displayName,
-    email: currentUser.email,
-    createdAt: currentUser.createdAt,
-  })
+  (currentUser) =>
+    currentUser
+      ? {
+          displayName: currentUser.displayName,
+          email: currentUser.email,
+          createdAt: currentUser.createdAt,
+        }
+      : null
 );
 
 export const selectCurrentUserPurchaseHistory = createSelector(
