@@ -32,7 +32,7 @@ const ThanksPage = () => {
 
   return (
     <div className="thanks">
-      <div className="image" />
+      <div className="cover" />
       <div className="contents">
         <div className="title">
           <h1>S&A</h1>
