@@ -32,8 +32,8 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="container">
-        <ErrorBoundary>
+      <ErrorBoundary>
+        <div className="container">
           <Suspense fallback={<Spinner />}>
             <Switch>
               <Route exact path="/" component={HomePage} />
@@ -58,9 +58,9 @@ const App = () => {
               <Route render={() => <Redirect to="/" />} />
             </Switch>
           </Suspense>
-        </ErrorBoundary>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </ErrorBoundary>
     </>
   );
 };
