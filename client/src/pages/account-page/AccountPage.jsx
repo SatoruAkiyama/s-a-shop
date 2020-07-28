@@ -44,7 +44,7 @@ const AccountPage = () => {
           <AccountHitory />
         </div>
         <div className="go-shopping">
-          <h2 className="desc">Let's go shopping</h2>
+          <h2>Let's go shopping</h2>
           <Directory />
         </div>
       </div>

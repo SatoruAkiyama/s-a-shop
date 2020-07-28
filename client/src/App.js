@@ -30,7 +30,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="app">
+    <>
       <Header />
       <div className="container">
         <ErrorBoundary>
@@ -61,7 +61,7 @@ const App = () => {
         </ErrorBoundary>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

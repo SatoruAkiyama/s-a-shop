@@ -5,25 +5,21 @@
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: #000;
+  background-color: #fff;
 
   .image {
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
-    left: 0;
-    background-image: url("https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     opacity: 0.5;
+    background-color: #000;
     z-index: -1;
   }
 
   .contents {
     position: absolute;
-    top: 35%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;

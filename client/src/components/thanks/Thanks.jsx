@@ -19,17 +19,17 @@ const ThanksPage = () => {
   const currentUserId = useSelector(selectCurrentUserId);
   const purchaseHistory = useSelector(selectCurrentUserPurchaseHistory);
 
-  const history = useHistory();
+  const { push } = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    addPurchaseHistory(purchaseHistory, currentUserId);
-  }, [purchaseHistory, currentUserId]);
+    const addedPurchaseHistory = async () => {
+      await addPurchaseHistory(purchaseHistory, currentUserId);
+      dispatch(checkOut());
+    };
+    addedPurchaseHistory();
+  }, [purchaseHistory, currentUserId, dispatch]);
 
-  const handleCheckout = () => {
-    dispatch(checkOut());
-    history.push("/account");
-  };
   return (
     <div className="thanks">
       <div className="image" />
@@ -38,9 +38,10 @@ const ThanksPage = () => {
           <h1>S&A</h1>
         </div>
         <div className="text">
+          <h2>Thank you.</h2>
           <h2>Payment is success !!</h2>
         </div>
-        <Button value="Ok" inverted onClick={handleCheckout} />
+        <Button value="Ok" inverted onClick={() => push("/account")} />
       </div>
     </div>
   );

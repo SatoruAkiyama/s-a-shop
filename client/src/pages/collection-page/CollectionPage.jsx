@@ -5,6 +5,7 @@ import { selectShopCollection } from "../../redux/shop/shopSelector";
 
 import CollectionItem from "../../components/collection-item/CollectionItem";
 import HeaderImage from "../../components/header-image/HeaderImage";
+import Directory from "../../components/directory/Directory";
 
 import headerImageData from "../../data/headerImageData";
 
@@ -26,6 +27,10 @@ const CollectionPage = ({ match }) => {
           {items.map((item) => {
             return <CollectionItem key={item.id} item={item} />;
           })}
+        </div>
+        <div className="other-category">
+          <h2>Explore more</h2>
+          <Directory />
         </div>
       </div>
     </>

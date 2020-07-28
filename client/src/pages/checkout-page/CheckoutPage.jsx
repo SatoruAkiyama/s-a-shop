@@ -15,6 +15,7 @@ import StripeButton from "../../components/stripe-button/StripeButton";
 import Button from "../../components/button/Button";
 import Thanks from "../../components/thanks/Thanks";
 import HeaderImage from "../../components/header-image/HeaderImage";
+import Directory from "../../components/directory/Directory";
 
 import headerImageData from "../../data/headerImageData";
 
@@ -78,6 +79,10 @@ const Checkout = () => {
             <div className="red">*Please SIGN IN to buy items*</div>
           </div>
         )}
+      </div>
+      <div className="other-category">
+        <h2>Explore more</h2>
+        <Directory />
       </div>
     </>
   );

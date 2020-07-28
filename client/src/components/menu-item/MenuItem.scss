@@ -29,7 +29,7 @@
     background-position: center;
     background-size: cover;
     position: absolute;
-    transition: transform 0.5s ease-in;
+    transition: transform 3.5s ease-in;
   }
 
   .content {
@@ -82,7 +82,8 @@
     min-width: 30%;
     margin: 0 7.5px 15px;
 
-    &.large {
+    &:nth-child(1),
+    &:nth-child(2) {
       min-width: 45%;
       height: 320px;
     }
