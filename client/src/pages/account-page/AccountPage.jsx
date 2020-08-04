@@ -22,7 +22,7 @@ const AccountPage = () => {
   const imageUrl = headerImageData.account;
 
   return (
-    <>
+    <div className="fade-in">
       <HeaderImage imageUrl={imageUrl}>
         <h1>Account</h1>
       </HeaderImage>
@@ -48,7 +48,7 @@ const AccountPage = () => {
           <Directory />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

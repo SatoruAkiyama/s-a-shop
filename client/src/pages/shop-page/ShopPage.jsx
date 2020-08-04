@@ -21,7 +21,7 @@ const ShopPage = ({ match }) => {
   }, [dispatch]);
 
   return (
-    <div className="shop-page">
+    <div className="shop-page fade-in">
       <Suspense fallback={<Spinner />}>
         <Route
           exact

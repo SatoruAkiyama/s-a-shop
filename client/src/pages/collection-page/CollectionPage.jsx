@@ -18,7 +18,7 @@ const CollectionPage = ({ match }) => {
   const { title, items } = collection;
   const imageUrl = headerImageData;
   return (
-    <>
+    <div className="fade-in">
       <HeaderImage imageUrl={imageUrl[title.toLowerCase()]}>
         <h1>{title.toUpperCase()}</h1>
       </HeaderImage>
@@ -33,7 +33,7 @@ const CollectionPage = ({ match }) => {
           <Directory />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

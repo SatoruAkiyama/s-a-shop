@@ -11,7 +11,7 @@ import "./HomePage.scss";
 const HomePage = () => {
   const imageUrl = headerImageData.home;
   return (
-    <>
+    <div className="fade-in">
       <HeaderImage imageUrl={imageUrl} large>
         <h1>S&A</h1>
         <p>Enjoy your life with fashion!</p>
@@ -21,7 +21,7 @@ const HomePage = () => {
         <Directory />
         <Information />
       </div>
-    </>
+    </div>
   );
 };
 

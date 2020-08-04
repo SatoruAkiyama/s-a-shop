@@ -21,7 +21,7 @@ const CollectionItem = ({ item }) => {
   return (
     <div className="collection-item">
       <div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />
-      <div className={`${added ? "added" : ""} addedShow`}>
+      <div className={`${added ? "added" : ""} addedShow fast-fade-in`}>
         <span>Added!</span>
       </div>
       <div className="collection-footer">

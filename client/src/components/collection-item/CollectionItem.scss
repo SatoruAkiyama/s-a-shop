@@ -97,3 +97,21 @@
     height: 300px;
   }
 }
+
+.fast-fade-in {
+  opacity: 0;
+  animation-name: fast-fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fast-fadeIn {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  70% {
+    opacity: 1;
+  }
+}

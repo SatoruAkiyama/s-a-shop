@@ -31,9 +31,11 @@ const Checkout = () => {
   const imageUrl = headerImageData.checkout;
 
   return checkOutDone ? (
-    <Thanks />
+    <div className="fade-in">
+      <Thanks />
+    </div>
   ) : (
-    <>
+    <div className="fade-in">
       <HeaderImage imageUrl={imageUrl}>
         <h1>CHECKOUT</h1>
       </HeaderImage>
@@ -84,7 +86,7 @@ const Checkout = () => {
         <h2>Explore more</h2>
         <Directory />
       </div>
-    </>
+    </div>
   );
 };
 

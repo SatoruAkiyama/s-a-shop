@@ -11,6 +11,10 @@
   position: fixed;
   top: 90px;
   right: 10px;
+  opacity: 0;
+  animation-name: drop-fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 
   .cart-items {
     display: flex;
@@ -110,5 +114,14 @@
 @media (min-width: 1500px) {
   .cart-dropdown {
     right: 120px;
+  }
+}
+
+@keyframes drop-fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
