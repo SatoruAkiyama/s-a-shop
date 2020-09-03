@@ -63,7 +63,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="satoru">
-          <a href="https://satoruakiyama.com">&copy;2020 Satoru Akiyama</a>
+          <a
+            href="https://satoruakiyama.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            &copy;2020 Satoru Akiyama
+          </a>
         </div>
       </div>
     </div>
