@@ -2,6 +2,8 @@
 
 This site is EC web site created with React/ Redux/Firebase. Please sign up and you can buy items. Also you can see your purchase history! This site is compatible with PWA. Enjoy this web app!!
 
+[Details](https://satoruakiyama.com/work/s-a-shop)
+
 # DEMO
 
 Live site(https://s-a-shop.herokuapp.com/)
