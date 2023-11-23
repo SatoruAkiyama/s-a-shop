@@ -11,4 +11,4 @@ Live site(https://s-a-shop.herokuapp.com/)
 
 # Author
 
-Satoru Akiyama(https://satoruakiyama.com)
+Satoru Akiyama(https://portfolio-satoruakiyama.vercel.app)
